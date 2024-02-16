@@ -1,20 +1,15 @@
 class Solution {
 public:
-    static string repeatString(const string& word, int k) {
-    stringstream ss;
-    for (int i = 0; i < k; ++i) {
-        ss << word;
-    }
-    return ss.str();
-}
-    
     int maxRepeating(string sequence, string word) {
-        int result = 1;
+        int result = 0;
+        string substring = word;
         while(1) {
-            if (sequence.find(repeatString(word, result)) != string::npos)
-                result += 1;
+            if (sequence.find(substring) != string::npos) {
+                substring += word;
+                result++;
+                }
             else break;
         }
-        return result - 1;
+        return result;
     }
 };
