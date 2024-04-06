@@ -1,7 +1,6 @@
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        start = 0
-        end = 1
+        start, end = 0, 1
         sub_array_sum = nums[0]
         minSubArrayLength = 100001
         
@@ -17,7 +16,3 @@ class Solution:
                 break
                 
         return 0 if minSubArrayLength == 100001 else minSubArrayLength
-                
-                
-        
-        
