@@ -1,6 +1,6 @@
 class Solution {
     func integerReplacement(_ n: Int) -> Int {
-        var dp = Array(repeating: -1, count: 25)
+        var dp = Array(repeating: -1, count: 26)
         dp[0] = 10000
         dp[1] = 0
         dp[2] = 1
@@ -24,11 +24,12 @@ class Solution {
         dp[20] = 5
         dp[21] = 6
         dp[22] = 6
-        // dp[23] = 7
-        // dp[24] = 5
+        dp[23] = 6
+        dp[24] = 5
+        dp[25] = 6
         
         func replacement(_ n:Int) -> Int {
-            if (n <= 22) {
+            if (n <= 25) {
                 return dp[n]
             }
             if n % 2 == 0 {
