@@ -28,7 +28,7 @@ class Solution {
         // dp[24] = 5
         
         func replacement(_ n:Int) -> Int {
-            if (n <= 17) {
+            if (n <= 20) {
                 return dp[n]
             }
             if n % 2 == 0 {
