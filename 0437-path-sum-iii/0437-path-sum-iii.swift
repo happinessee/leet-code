@@ -20,32 +20,32 @@ class Solution {
         }
         
         var result = 0
-        var sumArray = [Int](repeating: 0, count: 1000)
+        var sumArray:[Int] = []
         
-        func dfs(_ parent: TreeNode?, _ sumArray: inout [Int], _ depth: Int) -> Void {
+        func dfs(_ parent: TreeNode?, _ sumArray: inout [Int]) -> Void {
             guard let parent = parent else { return }
-    
-            for i in 0..<depth+1 {
+            
+            sumArray.append(0)
+            for i in 0..<sumArray.count {
                 sumArray[i] += parent.val
-                if sumArray[i] == targetSum {
-                    // print(sumArray[0..<depth+1])
-                    result += 1
-                }
             }
+            
+            result += sumArray.filter {$0 == targetSum}.count
             
             if let left = parent.left {
-                dfs(left, &sumArray, depth + 1)
+                dfs(left, &sumArray)
             }
             if let right = parent.right {
-                dfs(right, &sumArray, depth + 1)
+                dfs(right, &sumArray)
             }
             
-            for i in 0..<depth+1 {
+            sumArray.popLast()
+            for i in 0..<sumArray.count {
                 sumArray[i] -= parent.val
             }
         }
         
-        dfs(root, &sumArray, 0)
+        dfs(root, &sumArray)
         return result
     }
 }
