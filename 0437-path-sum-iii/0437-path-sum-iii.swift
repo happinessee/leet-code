@@ -15,37 +15,21 @@
  */
 class Solution {
     func pathSum(_ root: TreeNode?, _ targetSum: Int) -> Int {
-        if (root == nil) {
-            return 0
+        var paths = 0
+        var occurrences: Dictionary<Int, Int> = [0 : 1]
+        
+        func dfs(_ node: TreeNode?, _ currentSum: Int) {
+            guard let node = node else { return }
+            let sum = currentSum + node.val
+            paths += occurrences[sum - targetSum, default: 0]
+            occurrences[sum, default: 0] += 1
+            
+            dfs(node.left, sum)
+            dfs(node.right, sum)
+            
+            occurrences[sum, default: 0] -= 1
         }
-        
-        var result = 0
-        var sumArray:[Int] = []
-        
-        func dfs(_ parent: TreeNode?, _ sumArray: inout [Int]) -> Void {
-            guard let parent = parent else { return }
-            
-            sumArray.append(0)
-            for i in 0..<sumArray.count {
-                sumArray[i] += parent.val
-            }
-            
-            result += sumArray.filter {$0 == targetSum}.count
-            
-            if let left = parent.left {
-                dfs(left, &sumArray)
-            }
-            if let right = parent.right {
-                dfs(right, &sumArray)
-            }
-            
-            sumArray.popLast()
-            for i in 0..<sumArray.count {
-                sumArray[i] -= parent.val
-            }
-        }
-        
-        dfs(root, &sumArray)
-        return result
+        dfs(root, 0)
+        return paths
     }
 }
