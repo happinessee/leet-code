@@ -31,12 +31,11 @@ class Solution {
         for edge in edges {
             let (u, v) = (edge[0], edge[1])
 
-            if !restrictedSet.contains(u) && !restrictedSet.contains(v) {
+            if !(restrictedSet.contains(u) || restrictedSet.contains(v)) {
                 unionFind.union(v, u)
             }
         }
         
-        // 0번 노드와 연결된 모든 노드를 센다
         let root = unionFind.find(0)
         for i in 0..<n {
             if unionFind.parent[i] != root {
