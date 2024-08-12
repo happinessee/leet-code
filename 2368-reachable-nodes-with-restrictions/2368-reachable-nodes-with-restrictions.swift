@@ -31,7 +31,7 @@ class Solution {
         for edge in edges {
             let (u, v) = (edge[0], edge[1])
 
-            if !(restrictedSet.contains(u) || restrictedSet.contains(v)) {
+            if !restrictedSet.contains(u) && !restrictedSet.contains(v) {
                 unionFind.union(v, u)
             }
         }
