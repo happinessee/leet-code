@@ -4,8 +4,8 @@
  */
 var grayCode = function(n) {
     var binaryList = [];
-    for (var i = 0; i < 2**n; i++) {
-        binaryList.push(i ^ (i >> 1));
+    for (var i = 0; i < (1 << n); i++) {
+        binaryList.push(i ^ (i >> 1)); // i xor (i >> 1)
     }
     return binaryList;
 };
