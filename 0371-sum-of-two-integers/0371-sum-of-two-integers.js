@@ -14,8 +14,6 @@ var bitwiseAdd = function(a, b) {
 
         a = sum;
         b = carry;
-        // console.log("a: ", a);
-        // console.log("b: ", b);
     }
     return a;
 };
