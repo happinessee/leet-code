@@ -11,7 +11,6 @@ var minSessions = function (tasks, sessionTime) {
 
   const sessionSums = new Array(totalStates).fill(0);
 
-  // 모든 상태에 대해 탐색
   for (let state = 1; state < totalStates; state++) {
     let sum = 0;
     for (let i = 0; i < n; i++) {
@@ -23,7 +22,6 @@ var minSessions = function (tasks, sessionTime) {
   }
 
   for (let state = 1; state < totalStates; state++) {
-    // 부분 집합의 부분 집합을 탐색
     for (let subset = state; subset > 0; subset = (subset - 1) & state) {
       if (sessionSums[subset] <= sessionTime) {
         dp[state] = Math.min(dp[state], dp[state ^ subset] + 1);
