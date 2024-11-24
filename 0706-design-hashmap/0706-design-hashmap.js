@@ -1,0 +1,40 @@
+
+var MyHashMap = function() {
+    this.hashMapArray = new Array(1000000).fill(null);
+};
+
+/** 
+ * @param {number} key 
+ * @param {number} value
+ * @return {void}
+ */
+MyHashMap.prototype.put = function(key, value) {
+    this.hashMapArray[key] = value;
+};
+
+/** 
+ * @param {number} key
+ * @return {number}
+ */
+MyHashMap.prototype.get = function(key) {
+    const value = this.hashMapArray[key];
+    if (value !== null) return value
+    return -1;
+};
+
+/** 
+ * @param {number} key
+ * @return {void}
+ */
+MyHashMap.prototype.remove = function(key) {
+    const value = this.hashMapArray[key];
+    if (value !== null) this.hashMapArray[key] = null;
+};
+
+/** 
+ * Your MyHashMap object will be instantiated and called as such:
+ * var obj = new MyHashMap()
+ * obj.put(key,value)
+ * var param_2 = obj.get(key)
+ * obj.remove(key)
+ */
