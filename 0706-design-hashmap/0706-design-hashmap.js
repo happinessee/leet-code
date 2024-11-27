@@ -8,7 +8,7 @@ class Node {
 
 class MyHashMap {
     constructor() {
-        this.size = 1 << 20; // 2^20 = 1,048,576
+        this.size = 1 << 14; // 2^20 = 1,048,576
         this.hashMapArray = new Array(this.size).fill(null); // 해시 테이블
     }
 
