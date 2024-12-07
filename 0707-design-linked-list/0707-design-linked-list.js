@@ -15,7 +15,6 @@ var MyLinkedList = function() {
  * @return {number}
  */
 MyLinkedList.prototype.get = function(index) {
-    console.log(this.head)
     if (index > this.size - 1) return -1;
 
     let currentNode = this.head;
@@ -99,10 +98,6 @@ MyLinkedList.prototype.deleteAtIndex = function(index) {
     }
     this.size--;
 };
-
-function logFullList(head) {
-    console.log(head);
-}
 
 /** 
  * Your MyLinkedList object will be instantiated and called as such:
