@@ -10,6 +10,11 @@ var threeSum = function(nums) {
 
     for (let i = 0; i < nums.length - 2; i++) {
         const firstElement = nums[i];
+
+        // early return 1
+        if (i > 0 && firstElement === nums[i - 1]) continue;
+        // early return 2
+        if (firstElement > 0) break;
         
         let j = i + 1;
         let k = nums.length - 1;
