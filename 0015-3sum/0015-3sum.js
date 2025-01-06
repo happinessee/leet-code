@@ -3,8 +3,7 @@
  * @return {number[][]}
  */
 var threeSum = function(nums) {
-    nums.sort((a, b) => a - b;
-    );
+    nums.sort((a, b) => a - b);
     const output = new ArraySet();
 
     for (let i = 0; i < nums.length - 2; i++) {
