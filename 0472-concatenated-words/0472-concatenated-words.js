@@ -1,12 +1,10 @@
-// Trie Node 클래스 정의
 class TrieNode {
   constructor() {
-    this.children = {}; // 각 자식 노드를 문자 -> TrieNode 형태로 저장
-    this.isWord = false; // 해당 노드가 단어의 끝인지 여부
+    this.children = {};
+    this.isWord = false;
   }
 }
 
-// Trie 클래스 정의
 class Trie {
   constructor() {
     this.root = new TrieNode();
