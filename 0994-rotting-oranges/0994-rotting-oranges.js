@@ -7,6 +7,7 @@ var orangesRotting = function(grid) {
     const n = grid[0].length;
 
     let elapsedMinutes = 0;
+    let freshOrangesCount = checkFreshOrangesCount(grid, m, n);
 
     const dirs = [[1,0], [-1,0], [0,1], [0,-1]];
     const visited = Array.from({ length: m }, () => Array(n).fill(0));
@@ -23,7 +24,7 @@ var orangesRotting = function(grid) {
             }
         }
 
-        if (rottenCells.length === 0 || checkFreshOrange(grid, m, n) === false) break;
+        if (rottenCells.length === 0 || freshOrangesCount === 0) break;
 
         for (let i = 0; i < rottenCells.length; i++) {
             const x = rottenCells[i][0];
@@ -33,26 +34,30 @@ var orangesRotting = function(grid) {
                 const nx = x + dx;
                 const ny = y + dy;
                 if (nx < 0 || nx >= m || ny < 0 || ny >= n) continue;
-                if (grid[nx][ny] === 1) grid[nx][ny] = 2;
+                if (grid[nx][ny] === 1) {
+                    grid[nx][ny] = 2;
+                    freshOrangesCount--;
+                }
             }
         }
 
         elapsedMinutes++;
     }
 
-    if (checkFreshOrange(grid, m, n)) return -1;
+    if (freshOrangesCount > 0) return -1;
     return elapsedMinutes;
 };
 
-const checkFreshOrange = (grid, m, n) => {
+const checkFreshOrangesCount = (grid, m, n) => {
+    let freshOranges = 0;
     for (let i = 0; i < m; i++) {
         for (let j = 0; j < n; j++) {
             if (grid[i][j] === 1) {
-                return true;
+                freshOranges++;
             }
         }
     }
-    return false;
+    return freshOranges;
 }
 
 
