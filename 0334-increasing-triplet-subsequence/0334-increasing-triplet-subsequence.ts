@@ -4,7 +4,6 @@ function increasingTriplet(nums: number[]): boolean {
 
     let first = Infinity;
     let second = Infinity;
-    let third;
 
     for (const num of nums) {
         if (num <= first) first = num;
