@@ -9,7 +9,6 @@ function increasingTriplet(nums: number[]): boolean {
     const length = nums.length;
 
     while(i < length - 2) {
-        console.log(i, j, k)
         if (nums[i] < nums[j] && nums[j] < nums[k]) return true;
 
         if (k === length - 1 && j === length - 2) {
