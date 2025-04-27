@@ -1,6 +1,6 @@
 function increasingTriplet(nums: number[]): boolean {
     if (nums.length < 3) return false;
-    if ((new Set(nums)).length < 3) return false;
+    if ((new Set(nums)).size < 3) return false;
 
     let i = 0;
     let j = 1;
