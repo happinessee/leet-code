@@ -25,8 +25,8 @@ function kthGrammar(n: number, k: number): number {
         }
     }
     
-    const result1 = parseInt(table[5][k-1]) === 1; // 1이면 true 0이면 false
+    const result = parseInt(table[5][k-1])
     const result2 = positive ? result1 : !result1
 
-    return result2 ? 1 : 0
+    return positive ? result : result ^ 1
 };
