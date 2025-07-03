@@ -15,6 +15,16 @@ function countNicePairs(nums: number[]): number {
   return result;
 }
 	
+// function reverseNum(num: number): number {
+// 	return parseInt(num.toString().split("").reverse().join(""));
+// }
+
 function reverseNum(num: number): number {
-	return parseInt(num.toString().split("").reverse().join(""));
+  let rev = 0;
+  let x = num;
+  while (x > 0) {
+    rev = rev * 10 + (x % 10);
+    x = Math.floor(x / 10);
+  }
+  return rev;
 }
